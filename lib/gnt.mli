@@ -47,6 +47,9 @@ module Gnttab : sig
   (** Close a connection to the grant device. Any future calls to map or
       unmap will fail. *)
 
+  val set_max_grants: interface -> int -> unit
+  (** Set maximum number of grants. Must be called before any calls to map or unmap *)
+
   type grant = {
     domid: int;
     (** foreign domain who is exporting memory *)

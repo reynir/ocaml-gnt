@@ -54,6 +54,14 @@ CAMLprim value stub_gnttab_interface_close(value xgh)
 	CAMLreturn(Val_unit);
 }
 
+CAMLprim value stub_gntmap_set_max_grants(value xgh, value count)
+{
+	CAMLparam2(xgh, count);
+	int err = xc_gnttab_set_max_grants(_G(xgh), Int_val(count));
+	/* FIXME: handle errors */
+	CAMLreturn(Val_unit);
+}
+
 CAMLprim value stub_gnttab_allocates(void)
 {
 	CAMLparam0();

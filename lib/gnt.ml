@@ -42,6 +42,8 @@ module Gnttab = struct
 
   external interface_close: interface -> unit = "stub_gnttab_interface_close"
 
+  external set_max_grants: interface -> int -> unit = "stub_gntmap_set_max_grants"
+
   type grant = {
     domid: domid;
     ref: gntref;
